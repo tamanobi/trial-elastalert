@@ -1,0 +1,3 @@
+# Elasticsearchとfluentdを連携確認
+
+ElastAlertのデモを試すためのリポジトリ
