@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  elasticsearch:
+    image: elasticsearch:6.4.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms300m -Xmx300m"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+  fluentd:
+    build: .
+    ports:
+      - "8080:8080"
+      - "24224:24224"
+  front:
+    image: nginx:1.16.0
+
+
+volumes:
+  es-data:
+    # ボリューム'es-data'はlocalに保存します
+    driver: local
