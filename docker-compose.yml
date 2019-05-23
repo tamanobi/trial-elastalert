@@ -15,6 +15,7 @@ services:
     ports:
       - "8080:8080"
       - "24224:24224"
+
   front:
     image: nginx:1.16.0
 
