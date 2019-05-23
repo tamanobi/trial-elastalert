@@ -21,5 +21,4 @@ services:
 
 volumes:
   es-data:
-    # ボリューム'es-data'はlocalに保存します
     driver: local
