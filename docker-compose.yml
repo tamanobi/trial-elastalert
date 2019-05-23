@@ -16,8 +16,11 @@ services:
       - "8080:8080"
       - "24224:24224"
 
-  front:
-    image: nginx:1.16.0
+  sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile-sandbox
+
 
   kibana:
     image: kibana:6.4.0

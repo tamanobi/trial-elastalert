@@ -1,0 +1,10 @@
+FROM golang:1.12.5-alpine3.9 as builder
+
+WORKDIR /go/src
+COPY ./main.go /go/src/ticker.go
+RUN GOOS=linux GOARCH=amd64 go build ./ticker.go
+
+FROM alpine:3.9
+COPY --from=builder /go/src/ticker .
+RUN apk add --no-cache curl
+CMD ["./ticker"]
